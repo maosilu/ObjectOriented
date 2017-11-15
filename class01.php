@@ -1,19 +1,33 @@
 <?php
 date_default_timezone_set('PRC');
 
-class NbaPlayer{
-	public  $name = 'Jordan';
-	private $height = '198cm';
-	private $weight = '98kg';
+class Human{
+	public $name;
+	public $height;
+	public $weight;
+
+	public function eat($food){
+		echo $this->name."'s eating ".$food."\n";
+	}
+}
+
+class Animal{
+
+}
+
+// PHP是单继承的，extends后面只能有一个类
+class NbaPlayer extends Human{
 	private $team = 'Bull';
 	private $playerNumber = 23;
 
 	// 构造函数，在被实例化的时候自动调用
 	function __construct($name, $height, $weight, $team, $playerNumber){
 		echo "In NbaPlayer condtructor\n";
+		// 父类中的属性，可以通过$this来访问
 		$this->name = $name;
 		$this->height = $height;
 		$this->weight = $weight;
+
 		$this->team = $team;
 		$this->playerNumber = $playerNumber;
 
@@ -52,21 +66,7 @@ class NbaPlayer{
 }
 
 //类到对象的实例话
-$jordan = new Nbaplayer('Jordan11', '198cm', '98kg', 'Bull', 23);
-var_dump($jordan);
+$jordan = new Nbaplayer('Jordan', '198cm', '98kg', 'Bull', 23);
 echo $jordan->name."\n";
-$jordan->dribble();
-$jordan->pass();
-
-$james = new NbaPlayer('James', '203cm', '120kg', 'heat', 6);
-echo $james->name."\n";
-/*
-通过把对象变量设置为null，可以触发析构函数的调用
-⚠️是当对象不会再被使用的时候，会触发析构函数
-*/
-$james1 = $james;
-$james2 = &$james;
-$james2 = null;
-$james1 = null;
-echo "From now on James will not be used.\n";
+echo $jordan->eat('apple');
 
