@@ -60,7 +60,13 @@ $jordan->pass();
 
 $james = new NbaPlayer('James', '203cm', '120kg', 'heat', 6);
 echo $james->name."\n";
-//通过把对象变量设置为null，可以触发析构函数的调用
-$james = null;
+/*
+通过把对象变量设置为null，可以触发析构函数的调用
+⚠️是当对象不会再被使用的时候，会触发析构函数
+*/
+$james1 = $james;
+$james2 = &$james;
+$james2 = null;
+$james1 = null;
 echo "From now on James will not be used.\n";
 
