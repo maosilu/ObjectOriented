@@ -2,7 +2,13 @@
 /*
 重写（overwrite）：子类中编写跟父类方法名完全一致的方法
 */
-class BaseClass{
+
+/*
+final:
+1.如果不想被任何类继承，可以在class之前添加final关键字
+2.如果父类中的方法不想被子类重写，可以在方法前添加final关键字
+*/
+final class BaseClass{
 	public function test(){
 		echo "BaseClass::test called\n";
 	}
