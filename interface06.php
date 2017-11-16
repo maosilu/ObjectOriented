@@ -46,7 +46,10 @@ function checkEat($obj){
 		echo "The obj can't eat.\n";
 	}
 }
+
+//相同的一行代码，对于传入不同的实现接口的对象的时候，表现是不同的，这就是多态
 checkEat($monkey);
+checkEat($man);
 
 /*
 以下测试接口是否能够继承接口
